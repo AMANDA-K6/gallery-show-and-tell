@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { ArrowRight, ArrowUpRight, Menu, X, Fingerprint, Globe, PenTool, Layers, Mail, Instagram, MapPin, Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog'
-import portrait from '@/assets/amanda-portrait.jpg'
+import portraitAsset from '@/assets/amanda-portrait.png.asset.json'
 import coffee from '@/assets/coffee.jpg'
 import envy from '@/assets/envy.jpg'
 import platinum from '@/assets/platinum.jpg'
@@ -84,7 +84,7 @@ function Index() {
               <div className="hero-buttons"><Button variant="portfolio" asChild><a href="#work">View Portfolio <ArrowRight /></a></Button><Button variant="studio" onClick={openContact}><Mail size={13} /> Contact Me</Button></div>
             </div>
             <figure className="portrait-frame">
-              <img src={portrait} alt="Creative designer portrait in a sunlit studio" width={1024} height={1152} fetchPriority="high" />
+              <img src={portraitAsset.url} alt="Amanda Kanjanda at her desk in a sunlit Harare studio" width={1536} height={1024} fetchPriority="high" />
               <figcaption className="portrait-caption"><span>AMANDA · CREATIVE LEAD & DESIGNER</span><em>Harare, ZW</em></figcaption>
             </figure>
           </div>
