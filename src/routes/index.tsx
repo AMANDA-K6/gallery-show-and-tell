@@ -30,8 +30,8 @@ const projects = [
   { name: 'MANDY DESIGN', category: 'Digital Design · Advertising', image: mandy, description: 'An expressive beauty editorial with a striking red-and-black visual language. Confident imagery and dramatic type put individuality at the center.', fit: 'cover' },
 ]
 const cases = [
-  { name: 'NOIRE COSMETICS', category: 'Brand identity · Art direction', image: noire, description: 'A bold beauty brand with timeless elegance. A refined monochrome identity, premium packaging and editorial storytelling create a confident, cohesive brand world.' },
-  { name: 'AUREA WELLNESS', category: 'Brand strategy · Packaging', image: aurea, description: 'A sophisticated wellness brand: calm, natural and radiant. Organic textures, considered typography and a gentle palette connect daily rituals with a sense of balance.' },
+  { name: 'NOIRE COSMETICS', category: 'Brand identity · Art direction', image: noire, description: 'A bold beauty brand with timeless elegance. A refined monochrome identity, premium packaging and editorial storytelling create a confident, cohesive brand world.', fit: 'cover' },
+  { name: 'AUREA WELLNESS', category: 'Brand strategy · Packaging', image: aurea, description: 'A sophisticated wellness brand: calm, natural and radiant. Organic textures, considered typography and a gentle palette connect daily rituals with a sense of balance.', fit: 'cover' },
 ]
 const skills = [
   { title: 'Branding', subtitle: 'Visual identity & positioning', icon: Fingerprint, copy: 'Distinctive brand identities, comprehensive style guidelines, and memorable visual languages designed to stand out.' },
