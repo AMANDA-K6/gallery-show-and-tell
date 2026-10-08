@@ -39,7 +39,7 @@ const skills = [
   { title: 'Web Design', subtitle: 'UI/UX & interactive experiences', icon: Globe, copy: 'Responsive, high-converting digital interfaces and immersive websites crafted with modern aesthetics and seamless UX.' },
   { title: 'Content Creation', subtitle: 'Editorial & creative direction', icon: PenTool, copy: 'Compelling visual storytelling, editorial copy, and bespoke multimedia assets tailored for luxury and lifestyle brands.' },
 ]
-const steps = [
+const steps: [string, string][] = [
   ['Discover', 'I learn about your brand, goals, and audience.'],
   ['Strategize', 'I create a clear plan and visual direction tailored to your brand.'],
   ['Design', 'I bring your concepts to life with intentional and impactful design.'],
@@ -83,7 +83,7 @@ function Index() {
               <p className="intro-copy">I craft premium visual identities for ambitious brands — clean, considered, and unforgettable.</p>
               <div className="hero-buttons"><Button variant="portfolio" asChild><a href="#work">View Portfolio <ArrowRight /></a></Button><Button variant="studio" onClick={openContact}><Mail size={13} /> Contact Me</Button></div>
             </div>
-            <figure className="portrait-frame" style={undefined}>
+            <figure className="portrait-frame">
               <img src={portrait} alt="Creative designer portrait in a sunlit studio" width={1024} height={1152} fetchPriority="high" />
               <figcaption className="portrait-caption"><span>AMANDA · CREATIVE LEAD & DESIGNER</span><em>Harare, ZW</em></figcaption>
             </figure>
