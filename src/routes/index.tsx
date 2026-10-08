@@ -4,7 +4,7 @@ import { ArrowRight, ArrowUpRight, Menu, X, Fingerprint, Globe, PenTool, Layers,
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import portraitAsset from '@/assets/amanda-portrait.png.asset.json'
-import coffee from '@/assets/coffee.jpg'
+import coneloAsset from '@/assets/conelo-logo.jpg.asset.json'
 import envy from '@/assets/envy.jpg'
 import platinum from '@/assets/platinum.jpg'
 import mandy from '@/assets/mandy.jpg'
@@ -24,10 +24,10 @@ export const Route = createFileRoute('/')({
 })
 
 const projects = [
-  { name: 'COFFEE & KINDNESS', category: 'Branding · Packaging', image: coffee, description: 'A warm, characterful coffee identity. An earthy palette, expressive typography and thoughtful packaging bring a little kindness to the everyday coffee ritual.' },
-  { name: 'ENVY BEAUTY', category: 'Campaign · Art Direction', image: envy, description: 'A bold fragrance campaign built around confidence and individuality. Rich pinks and elegant editorial typography create an unmistakable visual presence.' },
-  { name: 'PLATINUM FEMININITY', category: 'Publication · Editorial', image: platinum, description: 'A celebration of contemporary African style. Vibrant art direction and a considered editorial system unite fashion, culture and powerful storytelling.' },
-  { name: 'MANDY DESIGN', category: 'Digital Design · Advertising', image: mandy, description: 'An expressive beauty editorial with a striking red-and-black visual language. Confident imagery and dramatic type put individuality at the center.' },
+  { name: 'CONELO', category: 'Branding · Visual identity', image: coneloAsset.url, description: 'A playful identity built around two cone-shaped characters — scoops that double as location pins — sitting above a rounded wordmark topped with melting cream.', fit: 'contain' },
+  { name: 'ENVY BEAUTY', category: 'Campaign · Art Direction', image: envy, description: 'A bold fragrance campaign built around confidence and individuality. Rich pinks and elegant editorial typography create an unmistakable visual presence.', fit: 'cover' },
+  { name: 'PLATINUM FEMININITY', category: 'Publication · Editorial', image: platinum, description: 'A celebration of contemporary African style. Vibrant art direction and a considered editorial system unite fashion, culture and powerful storytelling.', fit: 'cover' },
+  { name: 'MANDY DESIGN', category: 'Digital Design · Advertising', image: mandy, description: 'An expressive beauty editorial with a striking red-and-black visual language. Confident imagery and dramatic type put individuality at the center.', fit: 'cover' },
 ]
 const cases = [
   { name: 'NOIRE COSMETICS', category: 'Brand identity · Art direction', image: noire, description: 'A bold beauty brand with timeless elegance. A refined monochrome identity, premium packaging and editorial storytelling create a confident, cohesive brand world.' },
@@ -102,7 +102,7 @@ function Index() {
         </section>
         <section id="work" className="work-section">
           <div className="container"><div className="section-heading"><div className="eyebrow">Featured work</div><a className="text-link" href="#cases">VIEW ALL PROJECTS <ArrowRight size={13} /></a></div>
-            <div className="project-grid">{projects.map(project => <Button key={project.name} variant="ghost" className="project-button" onClick={() => setSelected(project)} aria-label={`View ${project.name} project`}><span className="project-image"><img src={project.image} alt={project.name + ' design artwork'} width={512} height={512} loading="lazy" /><span className="project-open"><ArrowUpRight size={17} /></span></span><span className="project-title">{project.name}</span><span className="project-category">{project.category}</span></Button>)}</div>
+            <div className="project-grid">{projects.map(project => <Button key={project.name} variant="ghost" className="project-button" onClick={() => setSelected(project)} aria-label={`View ${project.name} project`}><span className={project.fit === 'contain' ? 'project-image project-image--logo' : 'project-image'}><img src={project.image} alt={project.name + (project.fit === 'contain' ? ' logo' : ' design artwork')} width={512} height={512} loading="lazy" /><span className="project-open"><ArrowUpRight size={17} /></span></span><span className="project-title">{project.name}</span><span className="project-category">{project.category}</span></Button>)}</div>
           </div>
         </section>
         <section id="process" className="process-section"><div className="container"><div className="eyebrow">My design process</div><div className="process-grid">{steps.map(([title, copy], i) => <article className="process-step" key={title}><span className="step-number">0{i + 1}</span><h3>{title.toUpperCase()}</h3><p>{copy}</p></article>)}</div></div></section>
