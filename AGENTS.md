@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep the portfolio as one home route with section-anchor navigation because it is a continuous editorial experience.
+- Define portfolio styling through semantic tokens and named styles in the global stylesheet to preserve the reference design consistently.
+- Use local generated portfolio media as demonstration assets until the owner supplies original photography and work.
