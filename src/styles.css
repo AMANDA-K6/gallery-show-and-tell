@@ -13,5 +13,5 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *,*:before,*:after{transition:none!important;animation:none!important;}}
 
 .project-image--logo img{object-fit:contain;background:var(--logo-surface);}
-.project-image--logo{border-color:var(--logo-surface);background:var(--logo-surface);}
+.project-image--logo{background:var(--logo-surface);}
 .dialog-image--logo{border-radius:10px;background:var(--logo-surface);}
