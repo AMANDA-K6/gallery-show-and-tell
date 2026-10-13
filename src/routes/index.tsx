@@ -4,7 +4,7 @@ import { ArrowRight, ArrowUpRight, Menu, X, Fingerprint, Globe, PenTool, Layers,
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import portraitAsset from '@/assets/amanda-portrait.png.asset.json'
-import coneloAsset from '@/assets/conelo-logo.jpg.asset.json'
+import coneloAsset from '@/assets/conelo-logo.png.asset.json'
 import envy from '@/assets/envy.jpg'
 import platinum from '@/assets/platinum.jpg'
 import mandy from '@/assets/mandy.jpg'
