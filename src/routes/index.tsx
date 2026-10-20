@@ -3,8 +3,9 @@ import { useState } from 'react'
 import { ArrowRight, ArrowUpRight, Menu, X, Fingerprint, Globe, PenTool, Layers, Mail, Instagram, MapPin, Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog'
-import portraitAsset from '@/assets/amanda-portrait.png.asset.json'
-import coneloAsset from '@/assets/conelo-logo.png.asset.json'
+import resume from '@/assets/AMANDA KANJANDA RESUME.pdf'
+import portrait from '@/assets/amanda-potrait.jpeg'
+import conelo from '@/assets/conelo.jpeg'
 import envy from '@/assets/envy.jpg'
 import platinum from '@/assets/platinum.jpg'
 import mandy from '@/assets/mandy.jpg'
@@ -24,7 +25,7 @@ export const Route = createFileRoute('/')({
 })
 
 const projects = [
-  { name: 'CONELO', category: 'Branding · Visual identity', image: coneloAsset.url, description: 'A playful identity built around two cone-shaped characters — scoops that double as location pins — sitting above a rounded wordmark topped with melting cream.', fit: 'contain' },
+  { name: 'CONELO', category: 'Branding · Visual identity', image: conelo, description: 'A playful identity built around two cone-shaped characters — scoops that double as location pins — sitting above a rounded wordmark topped with melting cream.', fit: 'contain' },
   { name: 'ENVY BEAUTY', category: 'Campaign · Art Direction', image: envy, description: 'A bold fragrance campaign built around confidence and individuality. Rich pinks and elegant editorial typography create an unmistakable visual presence.', fit: 'cover' },
   { name: 'PLATINUM FEMININITY', category: 'Publication · Editorial', image: platinum, description: 'A celebration of contemporary African style. Vibrant art direction and a considered editorial system unite fashion, culture and powerful storytelling.', fit: 'cover' },
   { name: 'MANDY DESIGN', category: 'Digital Design · Advertising', image: mandy, description: 'An expressive beauty editorial with a striking red-and-black visual language. Confident imagery and dramatic type put individuality at the center.', fit: 'cover' },
@@ -69,9 +70,9 @@ function Index() {
           </div>
         </div>
         <nav className="container nav-row" aria-label="Main navigation">
-          <a className="active" href="#home">HOME</a><a href="#skills">SKILLS</a><a href="#work">CV</a><a href="#contact">CONTACTS</a>
+          <a className="active" href="#home">HOME</a><a href="#skills">SKILLS</a><a href={resume} download="Amanda-Kanjanda-Resume.pdf">CV</a><a href="#contact">CONTACTS</a>
         </nav>
-        {menuOpen && <nav className="container menu-panel" aria-label="More navigation">{[['About me', '#about'], ['Capabilities', '#skills'], ['Selected work', '#work'], ['My process', '#process'], ['Case studies', '#cases'], ['Contact', '#contact']].map(([text, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)}>{text}</a>)}</nav>}
+        {menuOpen && <nav className="container menu-panel" aria-label="More navigation">{[['About me', '#about'], ['Capabilities', '#skills'], ['Selected work', '#work'], ['CV', resume], ['My process', '#process'], ['Case studies', '#cases'], ['Contact', '#contact']].map(([text, href]) => <a key={href} href={href} download={href === resume ? 'Amanda-Kanjanda-Resume.pdf' : undefined} onClick={() => setMenuOpen(false)}>{text}</a>)}</nav>}
       </header>
       <main>
         <section id="home" className="hero">
@@ -84,7 +85,7 @@ function Index() {
               <div className="hero-buttons"><Button variant="portfolio" asChild><a href="#work">View Portfolio <ArrowRight /></a></Button><Button variant="studio" onClick={openContact}><Mail size={13} /> Contact Me</Button></div>
             </div>
             <figure className="portrait-frame">
-              <img src={portraitAsset.url} alt="Amanda Kanjanda at her desk in a sunlit Harare studio" width={1536} height={1024} fetchPriority="high" />
+              <img src={portrait} alt="Amanda Kanjanda at her desk in a sunlit Harare studio" width={1536} height={1024} fetchPriority="high" />
               <figcaption className="portrait-caption"><span>AMANDA · CREATIVE LEAD & DESIGNER</span><em>Harare, ZW</em></figcaption>
             </figure>
           </div>
