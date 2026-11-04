@@ -6,9 +6,10 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/compone
 import resume from '@/assets/AMANDA KANJANDA RESUME.pdf'
 import portrait from '@/assets/amanda-potrait.jpeg'
 import conelo from '@/assets/conelo.jpeg'
-import envy from '@/assets/envy.jpg'
-import platinum from '@/assets/platinum.jpg'
-import mandy from '@/assets/mandy.jpg'
+import ivyCards from '@/assets/ivy-business-cards.jpg.asset.json'
+import ivyPoster from '@/assets/ivy-poster.jpg.asset.json'
+import platinumAsset from '@/assets/platinum-pharmacy.jpg.asset.json'
+import mandyAsset from '@/assets/mandy-poster.png.asset.json'
 import noire from '@/assets/noire-cosmetics.jpg'
 import aurea from '@/assets/aurea-wellness.jpg'
 
@@ -26,9 +27,9 @@ export const Route = createFileRoute('/')({
 
 const projects = [
   { name: 'CONELO', category: 'Branding · Visual identity', image: conelo, description: 'A playful identity built around two cone-shaped characters — scoops that double as location pins — sitting above a rounded wordmark topped with melting cream.', fit: 'contain' },
-  { name: 'ENVY BEAUTY', category: 'Campaign · Art Direction', image: envy, description: 'A bold fragrance campaign built around confidence and individuality. Rich pinks and elegant editorial typography create an unmistakable visual presence.', fit: 'cover' },
-  { name: 'PLATINUM FEMININITY', category: 'Publication · Editorial', image: platinum, description: 'A celebration of contemporary African style. Vibrant art direction and a considered editorial system unite fashion, culture and powerful storytelling.', fit: 'cover' },
-  { name: 'MANDY DESIGN', category: 'Digital Design · Advertising', image: mandy, description: 'An expressive beauty editorial with a striking red-and-black visual language. Confident imagery and dramatic type put individuality at the center.', fit: 'cover' },
+  { name: 'IVY BEAUTIES', category: 'Brand identity · Print & stationery', image: ivyCards.url, extra: ivyPoster.url, description: 'A vibrant beauty identity for Ivy Beauties: a lotus mark, bold pinks and a collateral suite spanning business cards and a "The Beauty Within" services poster.', fit: 'cover' },
+  { name: 'PLATINUM PHARMACY', category: 'Advertising · Recruitment campaign', image: platinumAsset.url, description: 'A high-impact recruitment poster for Platinum Pharmacy, pairing bold typography and neon lighting with clear, structured brand messaging.', fit: 'cover' },
+  { name: 'MANDY GRAPHIC DESIGNER', category: 'Studio promotion · Social media', image: mandyAsset.url, description: 'A promotional poster for my own studio, presenting the full range of design services in a confident magenta-and-plum layout.', fit: 'cover' },
 ]
 const cases = [
   { name: 'NOIRE COSMETICS', category: 'Brand identity · Art direction', image: noire, description: 'A bold beauty brand with timeless elegance. A refined monochrome identity, premium packaging and editorial storytelling create a confident, cohesive brand world.', fit: 'cover' },
@@ -47,7 +48,7 @@ const steps: [string, string][] = [
   ['Refine', 'We collaborate and refine until every detail feels perfect.'],
   ['Deliver', 'You receive polished assets that elevate your brand and business.'],
 ]
-type Project = (typeof projects)[number]
+type Project = { name: string; category: string; image: string; description: string; fit: string; extra?: string }
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -111,7 +112,7 @@ function Index() {
         <section id="contact" className="contact-section"><div className="container contact-grid"><div><div className="eyebrow">Let’s connect</div><h2 className="contact-title">Ready to elevate<br /><em>your brand?</em></h2><p className="contact-copy">Let’s create something beautiful, strategic, and unforgettable.</p><Button variant="portfolio" onClick={openContact}>LET’S WORK TOGETHER <ArrowRight /></Button></div><div className="contact-links"><a href="mailto:mandykanjanda21@gmail.com"><span className="contact-icon"><Mail size={15} /></span>mandykanjanda21@gmail.com<ArrowUpRight size={13} /></a><a href="https://www.instagram.com/mandygraphicdesigner21/" target="_blank" rel="noreferrer"><span className="contact-icon"><Instagram size={15} /></span>@mandygraphicdesigner21<ArrowUpRight size={13} /></a><div className="contact-location"><span className="contact-icon"><MapPin size={15} /></span>Harare, Zimbabwe</div></div></div></section>
       </main>
       <footer className="footer"><div className="container footer-content"><a href="#home" className="wordmark">AMANDA<span>DESIGN STUDIO</span></a><p>© {new Date().getFullYear()} Amanda Design Studio. All rights reserved.</p><div className="footer-links"><a href="#work">PRIVACY IN DESIGN</a><a href="#contact">LET’S CONNECT</a><a href="#home" aria-label="Back to top"><ArrowUpRight size={15} /></a></div></div></footer>
-      <Dialog open={selected !== null} onOpenChange={open => { if (!open) setSelected(null) }}><DialogContent className="project-dialog">{selected && <><DialogTitle className="dialog-title">{selected.name}</DialogTitle><p className="dialog-category">{selected.category}</p><img className={"dialog-image" + (selected.fit === "contain" ? " dialog-image--logo" : "")} src={selected.image} alt={selected.name + ' project detail'} /><DialogDescription className="dialog-description">{selected.description}</DialogDescription><Button variant="portfolio" onClick={() => { setSelected(null); openContact() }}>Let’s create your brand <ArrowRight /></Button></>}</DialogContent></Dialog>
+      <Dialog open={selected !== null} onOpenChange={open => { if (!open) setSelected(null) }}><DialogContent className="project-dialog">{selected && <><DialogTitle className="dialog-title">{selected.name}</DialogTitle><p className="dialog-category">{selected.category}</p><img className={"dialog-image" + (selected.fit === "contain" ? " dialog-image--logo" : "")} src={selected.image} alt={selected.name + ' project detail'} />{selected.extra && <img className="dialog-image" src={selected.extra} alt={selected.name + ' additional artwork'} />}<DialogDescription className="dialog-description">{selected.description}</DialogDescription><Button variant="portfolio" onClick={() => { setSelected(null); openContact() }}>Let’s create your brand <ArrowRight /></Button></>}</DialogContent></Dialog>
       <Dialog open={contactOpen} onOpenChange={setContactOpen}><DialogContent className="project-dialog"><DialogTitle className="dialog-title">Let’s create <em>something meaningful.</em></DialogTitle><DialogDescription className="dialog-description">Tell me a little about your brand and what you have in mind.</DialogDescription><form className="contact-form" onSubmit={event => { event.preventDefault(); const subject = encodeURIComponent(`Project enquiry from ${name}`); const body = encodeURIComponent(`Hi Amanda,\n\n${message}\n\n${name}\n${email}`); window.location.href = `mailto:mandykanjanda21@gmail.com?subject=${subject}&body=${body}`; setSent(true) }}><label>Your name<input value={name} onChange={e => setName(e.target.value)} autoComplete="name" required placeholder="Full name" /></label><label>Email address<input type="email" value={email} onChange={e => setEmail(e.target.value)} autoComplete="email" required placeholder="you@example.com" /></label><label>Your project<textarea value={message} onChange={e => setMessage(e.target.value)} required rows={4} placeholder="A little about your brand, goals and timeline…" /></label><div className="form-actions"><Button variant="portfolio" type="submit">{sent ? <><Check /> Email prepared</> : <>Start the conversation <ArrowRight /></>}</Button><span className="form-note">Opens in your email app.</span></div></form></DialogContent></Dialog>
     </>
   )
