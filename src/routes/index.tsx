@@ -6,10 +6,10 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/compone
 import resume from '@/assets/AMANDA KANJANDA RESUME.pdf'
 import portrait from '@/assets/amanda-potrait.jpeg'
 import conelo from '@/assets/conelo.jpeg'
-import ivyCards from '@/assets/ivy-business-cards.jpg.asset.json'
-import ivyPoster from '@/assets/ivy-poster.jpg.asset.json'
-import platinumAsset from '@/assets/platinum-pharmacy.jpg.asset.json'
-import mandyAsset from '@/assets/mandy-poster.png.asset.json'
+import ivyCards from '@/assets/ivy-business-cards.jpg'
+import ivyPoster from '@/assets/ivy-poster.jpg'
+import platinumAsset from '@/assets/platinum-pharmacy.jpg'
+import mandyAsset from '@/assets/mandy-poster.jpg'
 import noire from '@/assets/noire-cosmetics.jpg'
 import aurea from '@/assets/aurea-wellness.jpg'
 
@@ -27,9 +27,9 @@ export const Route = createFileRoute('/')({
 
 const projects = [
   { name: 'CONELO', category: 'Branding · Visual identity', image: conelo, description: 'A playful identity built around two cone-shaped characters — scoops that double as location pins — sitting above a rounded wordmark topped with melting cream.', fit: 'contain' },
-  { name: 'IVY BEAUTIES', category: 'Brand identity · Print & stationery', image: ivyCards.url, extra: ivyPoster.url, description: 'A vibrant beauty identity for Ivy Beauties: a lotus mark, bold pinks and a collateral suite spanning business cards and a "The Beauty Within" services poster.', fit: 'cover' },
-  { name: 'PLATINUM PHARMACY', category: 'Advertising · Recruitment campaign', image: platinumAsset.url, description: 'A high-impact recruitment poster for Platinum Pharmacy, pairing bold typography and neon lighting with clear, structured brand messaging.', fit: 'cover' },
-  { name: 'MANDY GRAPHIC DESIGNER', category: 'Studio promotion · Social media', image: mandyAsset.url, description: 'A promotional poster for my own studio, presenting the full range of design services in a confident magenta-and-plum layout.', fit: 'cover' },
+  { name: 'IVY BEAUTIES', category: 'Brand identity · Print & stationery', image: ivyCards, extra: ivyPoster, description: 'A vibrant beauty identity for Ivy Beauties: a lotus mark, bold pinks and a collateral suite spanning business cards and a "The Beauty Within" services poster.', fit: 'cover' },
+  { name: 'PLATINUM PHARMACY', category: 'Advertising · Recruitment campaign', image: platinumAsset, description: 'A high-impact recruitment poster for Platinum Pharmacy, pairing bold typography and neon lighting with clear, structured brand messaging.', fit: 'cover' },
+  { name: 'MANDY GRAPHIC DESIGNER', category: 'Studio promotion · Social media', image: mandyAsset, description: 'A promotional poster for my own studio, presenting the full range of design services in a confident magenta-and-plum layout.', fit: 'cover' },
 ]
 const cases = [
   { name: 'NOIRE COSMETICS', category: 'Brand identity · Art direction', image: noire, description: 'A bold beauty brand with timeless elegance. A refined monochrome identity, premium packaging and editorial storytelling create a confident, cohesive brand world.', fit: 'cover' },
