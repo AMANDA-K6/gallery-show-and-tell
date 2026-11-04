@@ -15,3 +15,6 @@
 .project-image--logo img{object-fit:contain;background:var(--logo-surface);}
 .project-image--logo{background:var(--logo-surface);}
 .dialog-image--logo{border-radius:10px;background:var(--logo-surface);}
+
+.cv-dialog { max-width: min(56rem, 94vw); }
+.cv-frame { width: 100%; height: min(70vh, 52rem); border: 1px solid var(--border); border-radius: .5rem; background: var(--card); }

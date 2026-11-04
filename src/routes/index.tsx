@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
-import { ArrowRight, ArrowUpRight, Menu, X, Fingerprint, Globe, PenTool, Layers, Mail, Instagram, MapPin, Check } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Menu, X, Fingerprint, Globe, PenTool, Layers, Mail, Instagram, MapPin, Check, Download } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 const resume = '/amanda-kanjanda-cv.pdf'
@@ -53,6 +53,7 @@ type Project = { name: string; category: string; image: string; description: str
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [selected, setSelected] = useState<Project | null>(null)
+  const [cvOpen, setCvOpen] = useState(false)
   const [contactOpen, setContactOpen] = useState(false)
   const [sent, setSent] = useState(false)
   const [name, setName] = useState('')
@@ -71,9 +72,9 @@ function Index() {
           </div>
         </div>
         <nav className="container nav-row" aria-label="Main navigation">
-          <a className="active" href="#home">HOME</a><a href="#skills">SKILLS</a><a href={resume} target="_blank" rel="noopener noreferrer">CV</a><a href="#contact">CONTACTS</a>
+          <a className="active" href="#home">HOME</a><a href="#skills">SKILLS</a><a href="#cv" onClick={e => { e.preventDefault(); setCvOpen(true) }}>CV</a><a href="#contact">CONTACTS</a>
         </nav>
-        {menuOpen && <nav className="container menu-panel" aria-label="More navigation">{[['About me', '#about'], ['Capabilities', '#skills'], ['Selected work', '#work'], ['CV', resume], ['My process', '#process'], ['Case studies', '#cases'], ['Contact', '#contact']].map(([text, href]) => <a key={href} href={href} target={href === resume ? '_blank' : undefined} rel={href === resume ? 'noopener noreferrer' : undefined} onClick={() => setMenuOpen(false)}>{text}</a>)}</nav>}
+        {menuOpen && <nav className="container menu-panel" aria-label="More navigation">{[['About me', '#about'], ['Capabilities', '#skills'], ['Selected work', '#work'], ['CV', resume], ['My process', '#process'], ['Case studies', '#cases'], ['Contact', '#contact']].map(([text, href]) => <a key={href} href={href === resume ? '#cv' : href} onClick={e => { if (href === resume) { e.preventDefault(); setCvOpen(true) } setMenuOpen(false) }}>{text}</a>)}</nav>}
       </header>
       <main>
         <section id="home" className="hero">
@@ -113,6 +114,7 @@ function Index() {
       </main>
       <footer className="footer"><div className="container footer-content"><a href="#home" className="wordmark">AMANDA<span>DESIGN STUDIO</span></a><p>© {new Date().getFullYear()} Amanda Design Studio. All rights reserved.</p><div className="footer-links"><a href="#work">PRIVACY IN DESIGN</a><a href="#contact">LET’S CONNECT</a><a href="#home" aria-label="Back to top"><ArrowUpRight size={15} /></a></div></div></footer>
       <Dialog open={selected !== null} onOpenChange={open => { if (!open) setSelected(null) }}><DialogContent className="project-dialog">{selected && <><DialogTitle className="dialog-title">{selected.name}</DialogTitle><p className="dialog-category">{selected.category}</p><img className={"dialog-image" + (selected.fit === "contain" ? " dialog-image--logo" : "")} src={selected.image} alt={selected.name + ' project detail'} />{selected.extra && <img className="dialog-image" src={selected.extra} alt={selected.name + ' additional artwork'} />}<DialogDescription className="dialog-description">{selected.description}</DialogDescription><Button variant="portfolio" onClick={() => { setSelected(null); openContact() }}>Let’s create your brand <ArrowRight /></Button></>}</DialogContent></Dialog>
+      <Dialog open={cvOpen} onOpenChange={setCvOpen}><DialogContent className="project-dialog cv-dialog"><DialogTitle className="dialog-title">Curriculum <em>vitae</em></DialogTitle><DialogDescription className="dialog-description">Amanda Kanjanda — Graphic Designer</DialogDescription><iframe className="cv-frame" src={resume + '#view=FitH'} title="Amanda Kanjanda CV" /><Button variant="portfolio" asChild><a href={resume} download="Amanda_Kanjanda_CV.pdf"><Download /> Download CV</a></Button></DialogContent></Dialog>
       <Dialog open={contactOpen} onOpenChange={setContactOpen}><DialogContent className="project-dialog"><DialogTitle className="dialog-title">Let’s create <em>something meaningful.</em></DialogTitle><DialogDescription className="dialog-description">Tell me a little about your brand and what you have in mind.</DialogDescription><form className="contact-form" onSubmit={event => { event.preventDefault(); const subject = encodeURIComponent(`Project enquiry from ${name}`); const body = encodeURIComponent(`Hi Amanda,\n\n${message}\n\n${name}\n${email}`); window.location.href = `mailto:mandykanjanda21@gmail.com?subject=${subject}&body=${body}`; setSent(true) }}><label>Your name<input value={name} onChange={e => setName(e.target.value)} autoComplete="name" required placeholder="Full name" /></label><label>Email address<input type="email" value={email} onChange={e => setEmail(e.target.value)} autoComplete="email" required placeholder="you@example.com" /></label><label>Your project<textarea value={message} onChange={e => setMessage(e.target.value)} required rows={4} placeholder="A little about your brand, goals and timeline…" /></label><div className="form-actions"><Button variant="portfolio" type="submit">{sent ? <><Check /> Email prepared</> : <>Start the conversation <ArrowRight /></>}</Button><span className="form-note">Opens in your email app.</span></div></form></DialogContent></Dialog>
     </>
   )
