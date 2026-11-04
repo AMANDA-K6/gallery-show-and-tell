@@ -71,9 +71,9 @@ function Index() {
           </div>
         </div>
         <nav className="container nav-row" aria-label="Main navigation">
-          <a className="active" href="#home">HOME</a><a href="#skills">SKILLS</a><a href={resume} download="Amanda-Kanjanda-Resume.pdf">CV</a><a href="#contact">CONTACTS</a>
+          <a className="active" href="#home">HOME</a><a href="#skills">SKILLS</a><a href={resume} target="_blank" rel="noopener noreferrer">CV</a><a href="#contact">CONTACTS</a>
         </nav>
-        {menuOpen && <nav className="container menu-panel" aria-label="More navigation">{[['About me', '#about'], ['Capabilities', '#skills'], ['Selected work', '#work'], ['CV', resume], ['My process', '#process'], ['Case studies', '#cases'], ['Contact', '#contact']].map(([text, href]) => <a key={href} href={href} download={href === resume ? 'Amanda-Kanjanda-Resume.pdf' : undefined} onClick={() => setMenuOpen(false)}>{text}</a>)}</nav>}
+        {menuOpen && <nav className="container menu-panel" aria-label="More navigation">{[['About me', '#about'], ['Capabilities', '#skills'], ['Selected work', '#work'], ['CV', resume], ['My process', '#process'], ['Case studies', '#cases'], ['Contact', '#contact']].map(([text, href]) => <a key={href} href={href} target={href === resume ? '_blank' : undefined} rel={href === resume ? 'noopener noreferrer' : undefined} onClick={() => setMenuOpen(false)}>{text}</a>)}</nav>}
       </header>
       <main>
         <section id="home" className="hero">
