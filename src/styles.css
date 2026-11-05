@@ -17,4 +17,5 @@
 .dialog-image--logo{border-radius:10px;background:var(--logo-surface);}
 
 .cv-dialog { max-width: min(56rem, 94vw); }
-.cv-frame { width: 100%; height: min(70vh, 52rem); border: 1px solid var(--border); border-radius: .5rem; background: var(--card); }
+.cv-frame { width: 100%; max-height: 70vh; overflow-y: auto; border: 1px solid var(--border); border-radius: .5rem; background: var(--card); }
+.cv-frame img { display: block; width: 100%; height: auto; }
