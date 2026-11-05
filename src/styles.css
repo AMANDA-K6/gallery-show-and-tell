@@ -19,3 +19,24 @@
 .cv-dialog { max-width: min(56rem, 94vw); }
 .cv-frame { width: 100%; max-height: 70vh; overflow-y: auto; border: 1px solid var(--border); border-radius: .5rem; background: var(--card); }
 .cv-frame img { display: block; width: 100%; height: auto; }
+
+/* CONELO case study */
+.case-study-dialog{max-width:1000px!important;width:calc(100% - 24px);}
+.cs-hero{margin-bottom:24px;}
+.cs-title{font-family:var(--display);font-size:44px;font-weight:500;line-height:1.08;margin:8px 0 12px;}
+.cs-lead{color:var(--muted-foreground);font-size:15px;max-width:620px;}
+.cs-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:18px 0;margin:0 0 28px;}
+.cs-facts dt{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--primary);margin-bottom:4px;}
+.cs-facts dd{margin:0;font-size:13px;}
+.cs-figure{margin:0 0 24px;}
+.cs-figure img{width:100%;height:auto;display:block;border-radius:6px;border:1px solid var(--border);}
+.cs-figure figcaption{font-size:10px;letter-spacing:1px;color:var(--muted-foreground);margin-top:8px;}
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.cs-block{display:grid;grid-template-columns:60px 1fr;gap:16px;margin:12px 0 30px;}
+.cs-num{font-family:var(--display);font-size:34px;color:var(--primary);line-height:1;}
+.cs-block h3,.cs-outcome h3{font-family:var(--display);font-size:26px;margin-bottom:8px;}
+.cs-block p,.cs-outcome p{color:var(--muted-foreground);line-height:1.85;max-width:640px;}
+.cs-palette{display:flex;gap:10px;margin-top:16px;}
+.cs-palette span{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);}
+.cs-outcome{border-top:1px solid var(--border);padding-top:26px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;}
+@media (max-width:700px){.cs-title{font-size:30px}.cs-facts{grid-template-columns:1fr 1fr}.cs-grid{grid-template-columns:1fr;gap:0}.cs-block{grid-template-columns:1fr;gap:6px}}
