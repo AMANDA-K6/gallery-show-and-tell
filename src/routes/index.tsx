@@ -13,6 +13,7 @@ import mandyAsset from '@/assets/mandy-poster.jpg'
 import noire from '@/assets/noire-cosmetics.jpg'
 import aurea from '@/assets/aurea-wellness.jpg'
 import { ConeloCaseStudy } from '@/components/ConeloCaseStudy'
+import { IvyCaseStudy } from '@/components/IvyCaseStudy'
 
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
@@ -57,6 +58,7 @@ function Index() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [selected, setSelected] = useState<Project | null>(null)
   const [coneloOpen, setConeloOpen] = useState(false)
+  const [ivyOpen, setIvyOpen] = useState(false)
   const [cvOpen, setCvOpen] = useState(false)
   const [contactOpen, setContactOpen] = useState(false)
   const [sent, setSent] = useState(false)
