@@ -32,6 +32,9 @@
 .cs-figure img{width:100%;height:auto;display:block;border-radius:6px;border:1px solid var(--border);}
 .cs-figure figcaption{font-size:10px;letter-spacing:1px;color:var(--muted-foreground);margin-top:8px;}
 .cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.cs-tag{display:inline-block;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border-radius:99px;margin-bottom:8px;border:1px solid var(--border);}
+.cs-tag--before{color:var(--muted-foreground);}
+.cs-tag--after{color:var(--primary);border-color:var(--primary);}
 .cs-block{display:grid;grid-template-columns:60px 1fr;gap:16px;margin:12px 0 30px;}
 .cs-num{font-family:var(--display);font-size:34px;color:var(--primary);line-height:1;}
 .cs-block h3,.cs-outcome h3{font-family:var(--display);font-size:26px;margin-bottom:8px;}

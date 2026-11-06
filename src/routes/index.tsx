@@ -13,6 +13,7 @@ import mandyAsset from '@/assets/mandy-poster.jpg'
 import noire from '@/assets/noire-cosmetics.jpg'
 import aurea from '@/assets/aurea-wellness.jpg'
 import { ConeloCaseStudy } from '@/components/ConeloCaseStudy'
+import { IvyCaseStudy } from '@/components/IvyCaseStudy'
 
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
@@ -57,6 +58,7 @@ function Index() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [selected, setSelected] = useState<Project | null>(null)
   const [coneloOpen, setConeloOpen] = useState(false)
+  const [ivyOpen, setIvyOpen] = useState(false)
   const [cvOpen, setCvOpen] = useState(false)
   const [contactOpen, setContactOpen] = useState(false)
   const [sent, setSent] = useState(false)
@@ -109,7 +111,7 @@ function Index() {
         </section>
         <section id="work" className="work-section">
           <div className="container"><div className="section-heading"><div className="eyebrow">Featured work</div><a className="text-link" href="#work">VIEW ALL PROJECTS <ArrowRight size={13} /></a></div>
-            <div className="project-grid">{projects.map(project => <Button key={project.name} variant="ghost" className="project-button" onClick={() => project.name === 'CONELO' ? setConeloOpen(true) : setSelected(project)} aria-label={`View ${project.name} project`}><span className={project.fit === 'contain' ? 'project-image project-image--logo' : 'project-image'}><img src={project.image} alt={project.name + (project.fit === 'contain' ? ' logo' : ' design artwork')} width={512} height={512} loading="lazy" /><span className="project-open"><ArrowUpRight size={17} /></span></span><span className="project-title">{project.name}</span><span className="project-category">{project.category}</span></Button>)}</div>
+            <div className="project-grid">{projects.map(project => <Button key={project.name} variant="ghost" className="project-button" onClick={() => project.name === 'CONELO' ? setConeloOpen(true) : project.name === 'IVY BEAUTIES' ? setIvyOpen(true) : setSelected(project)} aria-label={`View ${project.name} project`}><span className={project.fit === 'contain' ? 'project-image project-image--logo' : 'project-image'}><img src={project.image} alt={project.name + (project.fit === 'contain' ? ' logo' : ' design artwork')} width={512} height={512} loading="lazy" /><span className="project-open"><ArrowUpRight size={17} /></span></span><span className="project-title">{project.name}</span><span className="project-category">{project.category}</span></Button>)}</div>
           </div>
         </section>
         <section id="process" className="process-section"><div className="container"><div className="eyebrow">My design process</div><div className="process-grid">{steps.map(([title, copy], i) => <article className="process-step" key={title}><span className="step-number">0{i + 1}</span><h3>{title.toUpperCase()}</h3><p>{copy}</p></article>)}</div></div></section>
@@ -119,6 +121,7 @@ function Index() {
       <footer className="footer"><div className="container footer-content"><a href="#home" className="wordmark">AMANDA<span>DESIGN STUDIO</span></a><p>© {new Date().getFullYear()} Amanda Design Studio. All rights reserved.</p><div className="footer-links"><a href="#work">PRIVACY IN DESIGN</a><a href="#contact">LET’S CONNECT</a><a href="#home" aria-label="Back to top"><ArrowUpRight size={15} /></a></div></div></footer>
       <Dialog open={selected !== null} onOpenChange={open => { if (!open) setSelected(null) }}><DialogContent className="project-dialog">{selected && <><DialogTitle className="dialog-title">{selected.name}</DialogTitle><p className="dialog-category">{selected.category}</p><img className={"dialog-image" + (selected.fit === "contain" ? " dialog-image--logo" : "")} src={selected.image} alt={selected.name + ' project detail'} />{selected.extra && <img className="dialog-image" src={selected.extra} alt={selected.name + ' additional artwork'} />}<DialogDescription className="dialog-description">{selected.description}</DialogDescription><Button variant="portfolio" onClick={() => { setSelected(null); openContact() }}>Let’s create your brand <ArrowRight /></Button></>}</DialogContent></Dialog>
       <ConeloCaseStudy open={coneloOpen} onOpenChange={setConeloOpen} onContact={() => { setConeloOpen(false); openContact() }} />
+      <IvyCaseStudy open={ivyOpen} onOpenChange={setIvyOpen} onContact={() => { setIvyOpen(false); openContact() }} />
       <Dialog open={cvOpen} onOpenChange={setCvOpen}><DialogContent className="project-dialog cv-dialog"><DialogTitle className="dialog-title">Curriculum <em>vitae</em></DialogTitle><DialogDescription className="dialog-description">Amanda Kanjanda — Graphic Designer</DialogDescription><div className="cv-frame"><img src="/cv/page-1.jpg" alt="Amanda Kanjanda CV" width={935} height={1210} /></div><Button variant="portfolio" asChild><a href={resume} download="Amanda_Kanjanda_CV.pdf"><Download /> Download CV</a></Button></DialogContent></Dialog>
       <Dialog open={contactOpen} onOpenChange={setContactOpen}><DialogContent className="project-dialog"><DialogTitle className="dialog-title">Let’s create <em>something meaningful.</em></DialogTitle><DialogDescription className="dialog-description">Tell me a little about your brand and what you have in mind.</DialogDescription><form className="contact-form" onSubmit={event => { event.preventDefault(); const subject = encodeURIComponent(`Project enquiry from ${name}`); const body = encodeURIComponent(`Hi Amanda,\n\n${message}\n\n${name}\n${email}`); window.location.href = `mailto:mandykanjanda21@gmail.com?subject=${subject}&body=${body}`; setSent(true) }}><label>Your name<input value={name} onChange={e => setName(e.target.value)} autoComplete="name" required placeholder="Full name" /></label><label>Email address<input type="email" value={email} onChange={e => setEmail(e.target.value)} autoComplete="email" required placeholder="you@example.com" /></label><label>Your project<textarea value={message} onChange={e => setMessage(e.target.value)} required rows={4} placeholder="A little about your brand, goals and timeline…" /></label><div className="form-actions"><Button variant="portfolio" type="submit">{sent ? <><Check /> Email prepared</> : <>Start the conversation <ArrowRight /></>}</Button><span className="form-note">Opens in your email app.</span></div></form></DialogContent></Dialog>
     </>
