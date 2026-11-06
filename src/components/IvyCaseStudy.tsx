@@ -64,7 +64,7 @@ export function IvyCaseStudy({ open, onOpenChange, onContact }: { open: boolean;
 
         <section className="cs-block">
           <span className="cs-num">03</span>
-          <div><h3>The redesign</h3><p>We rebuilt the identity around an elegant lotus mark — growth, care and femininity — set in a confident magenta-and-plum palette with refined typography. Every layout now leads the eye: headline first, services second, booking details always within reach.
+          <div><h3>The redesign</h3><p>We rebuilt the identity around an elegant lotus mark — growth, care and femininity — set in a confident magenta-and-plum palette with refined typography. Every layout now leads the eye: headline first, services second, booking details always within reach.</p>
             <div className="cs-palette" aria-label="Brand colour palette">{palette.map(c => <span key={c} style={{ background: c }} />)}</div>
           </div>
         </section>
