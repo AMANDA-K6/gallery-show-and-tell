@@ -39,7 +39,7 @@ export function IvyCaseStudy({ open, onOpenChange, onContact }: { open: boolean;
           <p className="dialog-category">Case study · Brand redesign</p>
           <DialogTitle className="cs-title">IVY BEAUTIES — <em>The beauty within.</em></DialogTitle>
           <DialogDescription className="cs-lead">
-            A beauty brand we discovered live on Facebook — and, with their permission, reimagined from the ground up.
+            A beauty brand we discovered live on Facebook — and with their permission, reimagined from the ground up.
           </DialogDescription>
         </header>
 
