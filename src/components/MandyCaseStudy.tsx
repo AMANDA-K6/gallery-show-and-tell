@@ -6,6 +6,7 @@ import cardFront from '@/assets/mandy/card-front.jpg'
 import cardBack from '@/assets/mandy/card-back.jpg'
 import posterServices from '@/assets/mandy-poster.jpg'
 import posterBusiness from '@/assets/mandy/poster-business.jpg'
+import banner from '@/assets/mandy/banner.jpg'
 import posterCertificates from '@/assets/mandy/poster-certificates.jpg'
 
 export const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61594328972551'
@@ -70,6 +71,7 @@ export function MandyCaseStudy({ open, onOpenChange, onContact }: { open: boolea
           <Figure src={posterBusiness} alt="“Make your business stand out” poster" caption="05 — “Make your business stand out” poster" />
         </div>
         <Figure wide src={posterCertificates} alt="Graduation and achievement certificates printing poster" caption="06 — Certificates printing poster" />
+        <Figure wide src={banner} alt="Mandy Graphic Designer business banner" caption="07 — Business banner" />
 
         <section className="cs-outcome">
           <h3>The outcome</h3>
