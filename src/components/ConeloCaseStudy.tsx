@@ -75,7 +75,7 @@ export function ConeloCaseStudy({ open, onOpenChange, onContact }: { open: boole
 
         <section className="cs-block">
           <span className="cs-num">04</span>
-          <div><h3>Print & editorial</h3><p>A tri-fold brochure introduces the flavour menu and store details, and a magazine feature tells the CONELO story — extending the brand voice into longer-form storytelling.</p></div>
+          <div><h3>Print & editorial</h3><p>A tri-fold brochure introduces the flavour menu and store details and a magazine feature tells the CONELO story — extending the brand voice into longer-form storytelling.</p></div>
         </section>
 
         <div className="cs-grid">

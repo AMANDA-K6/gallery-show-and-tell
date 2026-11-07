@@ -47,7 +47,7 @@ export function IvyCaseStudy({ open, onOpenChange, onContact }: { open: boolean;
 
         <section className="cs-block">
           <span className="cs-num">01</span>
-          <div><h3>The discovery</h3><p>We came across Ivy Beauties trading live on Facebook — a talented makeup, lashes and nails studio whose skills deserved a brand to match. We reached out, asked for permission, and set out to show what their identity could become.</p></div>
+          <div><h3>The discovery</h3><p>We came across Ivy Beauties trading live on Facebook — a talented makeup, lashes and nails studio whose skills deserved a brand to match. We reached out, asked for permission and set out to show what their identity could become.</p></div>
         </section>
 
         <section className="cs-block">
